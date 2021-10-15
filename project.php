@@ -1,8 +1,9 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="NL">
+<?php
+require 'modules/Projects.php';
+$projects = getAllProjects();
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,25 +54,33 @@
         </ul>
     </div>
 </nav>
-<div class="row">
-    <div class="cards">
+    <?php foreach ($projects as $project): ?>
+<div class="cards">
         <div class="card">
-            <h2 class="card-title">Dice Opdracht</h2>
-            <img src="Pictures/code.PNG" alt="een code snippet">
-            <p class="card-desc">Dit project zorgt ervoor dat er een "digitale dobbelsteen" wordt gegooid en je een random nummer krijgt.</p>
-        </div>
-        <div class="card">
-            <h2 class="card-title">Pop Quiz</h2>
-            <img src="Pictures/codesnippet.PNG" alt="een code snippet">
-            <p class="card-desc">Dit is een kleine pop quiz die ik heb gemaakt met wat basis progammeer vragen.</p>
-        </div>
-        <div class="card">
-            <h2 class="card-title">Card Game</h2>
-            <img src="Pictures/coolcode.PNG" alt="een code snippet">
-            <p class="card-desc">Bij dit project heb ik samen met mijn klasgenoten een kaart spel gemaakt.</p>
-        </div>
-    </div>
+        <h2 class="card-title"><?= $project->name; ?></h2>
+            <img src="<?= $project->img; ?>" alt="een code snippet">
+            <p class="card-desc"><?= $project->description; ?></p>
 </div>
+</div>
+    <?php endforeach; ?>
+<!--    <div class="cards">-->
+<!--        <div class="card">-->
+<!--            <h2 class="card-title">Dice Opdracht</h2>-->
+<!--            <img src="Pictures/code.PNG" alt="een code snippet">-->
+<!--            <p class="card-desc">Dit project zorgt ervoor dat er een "digitale dobbelsteen" wordt gegooid en je een random nummer krijgt.</p>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <h2 class="card-title">Pop Quiz</h2>-->
+<!--            <img src="Pictures/codesnippet.PNG" alt="een code snippet">-->
+<!--            <p class="card-desc">Dit is een kleine pop quiz die ik heb gemaakt met wat basis progammeer vragen.</p>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <h2 class="card-title">Card Game</h2>-->
+<!--            <img src="Pictures/coolcode.PNG" alt="een code snippet">-->
+<!--            <p class="card-desc">Bij dit project heb ik samen met mijn klasgenoten een kaart spel gemaakt.</p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <footer>
     <div class="grid-container">
         <div id="item5">Made by: Riza Karabicek</div>
@@ -79,3 +88,4 @@
 </footer>
 </body>
 </html>
+
