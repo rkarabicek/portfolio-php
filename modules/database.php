@@ -14,7 +14,8 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
-    include_once "Classes/Project.php";
+    include_once ('Classes/Project.php');
+    include_once ('Classes/Contacts.php');
 
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());

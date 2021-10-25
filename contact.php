@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="NL">
 <?php
-require 'modules/Projects.php';
-$projects = getAllProjects();
+require 'modules/Contact.php';
+$contacts = getAllContact();
 ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap.css"></link>
-    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap-grid.css"></link>
+    <link rel="stylesheet" href="bootstrap-4.1.3-dist/css/bootstrap-grid.min.css"></link>
     <link rel="stylesheet" href="CSS/style.css">
     <script src="JS/main.js"></script>
     <title>Home</title>
@@ -30,11 +30,11 @@ $projects = getAllProjects();
             <li class="nav-item">
                 <a class="nav-link" href="index.html">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="contact.php">Contact</a>
-            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="Project.html">Projecten <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="contact.php">Contact <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="project.php">Projecten</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="About.html">Over mij</a>
@@ -54,15 +54,19 @@ $projects = getAllProjects();
         </ul>
     </div>
 </nav>
-    <?php foreach ($projects as $project): ?>
-<div class="cards">
-        <div class="card">
-        <h2 class="card-title"><?= $project->name; ?></h2>
-            <img src="<?= $project->img; ?>" alt="een code snippet">
-            <p class="card-desc"><?= $project->description; ?></p>
+<h1 class="text-center">Wegen om mij te contacteren:</h1>
+<div class="text-center">
+<?php foreach ($contacts as $contact): ?>
+    <h2><?= $contact->name ?></h2>
+    <a href="<?= $contact->link ?>">
+        <img src="<?= $contact->img ?>" alt="logo naar een social media" class="img-fluid" style="width: 10%; height:20%;"></img>
+    </a>
+<?php endforeach; ?>
 </div>
+<br>
+<br>
+<h2 class="text-center">Email: rkarabicek20@hotmail.com</h2>
 </div>
-    <?php endforeach; ?>
 <footer>
     <div class="grid-container">
         <div id="item5">Made by: Riza Karabicek</div>
@@ -70,4 +74,3 @@ $projects = getAllProjects();
 </footer>
 </body>
 </html>
-
